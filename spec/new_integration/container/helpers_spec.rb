@@ -17,8 +17,9 @@ RSpec.describe "Application helpers", :application_integration do
       helpers = TestApp::Application["helpers"]
 
       expect(helpers).to be_kind_of(Dry::Core::BasicObject)
-      expect(helpers.inspect).to match("TestApp view helpers")
+      expect(helpers.routes).to be_kind_of(Hanami::Helpers::Routes)
       expect(helpers.class.included_modules).to include(Hanami::Helpers)
+      expect(helpers.inspect).to match("TestApp view helpers")
     end
   end
 end

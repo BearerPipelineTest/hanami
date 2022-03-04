@@ -3,20 +3,22 @@
 Hanami.application.register_provider :helpers do
   start do
     begin
-      require "hanami/helpers"
+      require "hanami/helpers/application_helpers"
+      require "hanami/helpers/routes"
     rescue LoadError # rubocop:disable Lint/SuppressedException
     end
 
-    if defined?(Hanami::Helpers)
-      require "dry/core/basic_object"
+    if defined?(Hanami::Helpers::ApplicationHelpers)
+      application = Hanami.application
 
-      helpers = Class.new(Dry::Core::BasicObject) do
-        include Hanami::Helpers
+      routes = Hanami::Helpers::Routes.new(router: application.router)
+      namespace = application.namespace
 
-        def __inspect
-          " (#{Hanami.application.namespace} view helpers)"
-        end
-      end.new
+      # TODO: check if `hanami-assets` is bundled, and inject its helpers
+      helpers = Hanami::Helpers::ApplicationHelpers.new(
+        application_name: namespace.to_s,
+        routes: routes
+      )
 
       register :helpers, helpers
     end
