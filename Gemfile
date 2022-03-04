@@ -14,7 +14,7 @@ gem "hanami-utils", "~> 2.0.alpha", require: false, git: "https://github.com/han
 gem "hanami-router", "~> 2.0.alpha", require: false, git: "https://github.com/hanami/router.git", branch: "main"
 gem "hanami-controller", "~> 2.0.alpha", require: false, git: "https://github.com/hanami/controller.git", branch: "main"
 gem "hanami-cli", "~> 2.0.alpha", require: false, git: "https://github.com/hanami/cli.git", branch: "main"
-gem "hanami-view", "~> 2.0.alpha", git: "https://github.com/hanami/view.git", branch: "main"
+gem "hanami-view", "~> 2.0.alpha", git: "https://github.com/hanami/view.git", branch: "feature/context-helpers"
 gem "hanami-helpers", "~> 2.0.alpha", git: "https://github.com/hanami/helpers.git", branch: "rewrite/hanami-2"
 
 gem "hanami-devtools", require: false, git: "https://github.com/hanami/devtools.git", branch: "main"
