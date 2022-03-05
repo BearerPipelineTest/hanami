@@ -47,8 +47,8 @@ RSpec.configure do |config|
       Object.send :remove_const, app_module
     end
 
-    %i[@_application @_app].each do |ivar|
-      Hanami.remove_instance_variable(ivar) if Hanami.instance_variable_defined?(ivar)
+    if Hanami.instance_variable_defined?(:@_application)
+      Hanami.remove_instance_variable(:@_application)
     end
   end
 end
