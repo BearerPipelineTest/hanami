@@ -25,4 +25,5 @@ group :test do
   gem "dotenv"
   gem "dry-types"
   gem "slim"
+  gem "erbse"
 end
